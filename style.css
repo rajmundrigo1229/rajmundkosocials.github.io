@@ -1,0 +1,67 @@
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  color:white;
+  text-align:center;
+  background-image:url("ROAD_BACKGROUND_IMAGE_URL");
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+  filter:brightness(0.75) saturate(1.25);
+}
+
+.container{
+  padding:40px 20px;
+  background:rgba(0,0,0,0.45);
+  min-height:100vh;
+}
+
+.profile{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #2b2b2e;
+  margin-bottom:10px;
+}
+
+h1{
+  margin:10px 0 0 0;
+  font-size:26px;
+}
+
+.bio{
+  color:#d0d0d0;
+  margin-bottom:25px;
+}
+
+.button{
+  display:block;
+  width:100%;
+  max-width:350px;
+  margin:8px auto;
+  padding:12px;
+  border-radius:10px;
+  text-decoration:none;
+  color:white;
+  font-size:16px;
+  font-weight:600;
+}
+
+.instagram{background:#E1306C;}
+.tiktok{background:#000000;}
+.facebook{background:#1877F2;}
+.snapchat{background:#FFFC00;color:black;}
+.whatsapp{background:#25D366;color:black;}
+
+.qr{
+  margin-top:30px;
+}
+
+.qr img{
+  width:180px;
+  height:180px;
+  border-radius:10px;
+  background:white;
+  padding:8px;
+}
