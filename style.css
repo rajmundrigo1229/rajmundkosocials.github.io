@@ -1,67 +1,293 @@
 body{
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  color:white;
-  text-align:center;
-  background-image:url("ROAD_BACKGROUND_IMAGE_URL");
-  background-size:cover;
-  background-position:center;
-  background-attachment:fixed;
-  filter:brightness(0.75) saturate(1.25);
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  text-align: center;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a25 50%, #0f0f1a 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(ellipse at 50% 80%, rgba(200, 180, 100, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to top, rgba(20, 15, 25, 0.9) 0%, rgba(40, 30, 50, 0.7) 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .container{
-  padding:40px 20px;
-  background:rgba(0,0,0,0.45);
-  min-height:100vh;
+  padding: 40px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  background: rgba(15, 10, 20, 0.35);
+  backdrop-filter: blur(10px);
 }
 
 .profile{
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  object-fit:cover;
-  border:3px solid #2b2b2e;
-  margin-bottom:10px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8), 0 0 20px rgba(200, 180, 100, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.9), 0 0 30px rgba(200, 180, 100, 0.5);
 }
 
 h1{
-  margin:10px 0 0 0;
-  font-size:26px;
+  margin: 15px 0 8px 0;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #ffffff 0%, #d0d0d0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .bio{
-  color:#d0d0d0;
-  margin-bottom:25px;
+  color: #b0b0b0;
+  margin-bottom: 30px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
 }
 
 .button{
-  display:block;
-  width:100%;
-  max-width:350px;
-  margin:8px auto;
-  padding:12px;
-  border-radius:10px;
-  text-decoration:none;
-  color:white;
-  font-size:16px;
-  font-weight:600;
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 11px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-.instagram{background:#E1306C;}
-.tiktok{background:#000000;}
-.facebook{background:#1877F2;}
-.snapchat{background:#FFFC00;color:black;}
-.whatsapp{background:#25D366;color:black;}
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  transition: left 0.3s ease;
+  z-index: 0;
+}
+
+.button:hover::before {
+  left: 100%;
+}
+
+.button {
+  background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-light) 100%);
+  color: transparent;
+}
+
+.instagram {
+  --color-dark: #8B1538;
+  --color-light: #E1306C;
+}
+
+.instagram::after {
+  content: 'Instagram';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #8B1538 0%, #E1306C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.instagram:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(225, 48, 108, 0.4);
+}
+
+.facebook {
+  --color-dark: #0a3b99;
+  --color-light: #1877F2;
+}
+
+.facebook::after {
+  content: 'Facebook';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #0a3b99 0%, #1877F2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.facebook:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(24, 119, 242, 0.4);
+}
+
+.snapchat {
+  --color-dark: #998c00;
+  --color-light: #FFFC00;
+}
+
+.snapchat::after {
+  content: 'Snapchat';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #998c00 0%, #FFFC00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #333;
+}
+
+.snapchat:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(255, 252, 0, 0.4);
+}
+
+.tiktok {
+  --color-dark: #000000;
+  --color-light: #666666;
+}
+
+.tiktok::after {
+  content: 'TikTok';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #000000 0%, #666666 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.tiktok:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(100, 100, 100, 0.4);
+}
+
+.whatsapp {
+  --color-dark: #0f6a2b;
+  --color-light: #25D366;
+}
+
+.whatsapp::after {
+  content: 'WhatsApp';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #0f6a2b 0%, #25D366 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.whatsapp:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+}
 
 .qr{
-  margin-top:30px;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .qr img{
-  width:180px;
-  height:180px;
-  border-radius:10px;
-  background:white;
-  padding:8px;
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  background: white;
+  padding: 12px;
+  display: block;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.qr img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 26px;
+  }
+
+  .profile {
+    width: 120px;
+    height: 120px;
+  }
+
+  .button {
+    max-width: 280px;
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  .qr img {
+    width: 180px;
+    height: 180px;
+  }
 }
